@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "pack:build": "pack build",
-    "pack:publish": "pack publish",
+    "pack:publish": "pack build && np --contents ./pkg",
     "test": "eslint ./src --quiet -c ./.eslintrc.js",
     "version": "npx @pika/pack"
   },
