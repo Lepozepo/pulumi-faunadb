@@ -10,8 +10,6 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - run: echo ${{github.event_name}}
-
     - uses: actions/checkout@v2
 
     - name: Use Node 15
