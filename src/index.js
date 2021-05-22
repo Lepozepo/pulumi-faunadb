@@ -4,14 +4,14 @@ import FaunaDBDynamic from './FaunaDBDynamic';
 
 export default class FaunaDB extends pulumi.ComponentResource {
   constructor(name, props = {}, ops) {
-    super('fauna:fauna:db', name, props, ops);
+    super('fauna:db:instance', name, props, ops);
 
     const config = new pulumi.Config();
-    const adminSecret = config.requireSecret('faunadb_secret');
+    const adminSecret = config.requireSecret('fauna:secret');
 
     this.db = new FaunaDBDynamic(
       name,
-      { name, adminSecret },
+      { name: props.name || name, adminSecret },
       { parent: this, additionalSecretOutputs: ['secret'] },
     );
     this.secret = this.db.secret;
