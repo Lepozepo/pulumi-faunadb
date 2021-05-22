@@ -2,9 +2,9 @@ name: packbot
 
 on:
   push:
-  release:
-    types: # This configuration does not affect the page_build event above
-      - created
+  # release:
+  #   types:
+  #     - created
 
 jobs:
   test:
