@@ -7,7 +7,7 @@ export default class FaunaDB extends pulumi.ComponentResource {
     super('fauna:db:instance', name, props, ops);
 
     const config = new pulumi.Config();
-    const adminSecret = config.requireSecret('fauna:secret');
+    const adminSecret = config.requireSecret('faunaSecret');
 
     this.db = new FaunaDBDynamic(
       name,
